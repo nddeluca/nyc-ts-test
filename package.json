@@ -1,0 +1,36 @@
+{
+  "name": "nyc-test",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Nick DeLuca <nickdeluca08@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "coverage": "nyc --all ava",
+    "test": "yarn build && yarn coverage"
+  },
+  "dependencies": {
+    "ava": "^0.22.0",
+    "nyc": "^11.2.1",
+    "typescript": "^2.5.2"
+  },
+  "ava": {
+    "files": [
+      "dist/**/*.test.js"
+    ],
+    "source": [
+      "dist/**/*.js"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.test.ts"
+    ]
+  }
+}
